@@ -11,6 +11,7 @@ import {StackNavigationProp} from "@react-navigation/stack";
 import {RootStackParamList} from "../types/navigation";
 import {RouteProp} from "@react-navigation/native";
 import {State} from "../types/state";
+import {User} from "../types/user";
 
 type Props = {
   navigation: StackNavigationProp<RootStackParamList, "Article">;
@@ -20,7 +21,7 @@ type Props = {
 export const ArticleScreen: React.FC<Props> = ({navigation, route}: Props) => {
   const {article} = route.params;
 
-  const user = useSelector((state: State) => state.user);
+  const user = useSelector((state: State) => state.user) as User;
 
   const dispatch = useDispatch();
 

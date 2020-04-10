@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from "react";
-import {StyleSheet, SafeAreaView, Text} from "react-native";
+import {StyleSheet, SafeAreaView, FlatList} from "react-native";
+import {useSelector} from "react-redux";
 /* components */
+import {ListItem} from "../components/ListItem";
 /* types */
 import {StackNavigationProp} from "@react-navigation/stack";
 import {RootStackParamList} from "../types/navigation";
 import {RouteProp} from "@react-navigation/native";
+import {State} from "../types/state";
+import {User} from "../types/user";
 
 type Props = {
   navigation: StackNavigationProp<RootStackParamList, "Clip">;
@@ -12,11 +16,22 @@ type Props = {
 };
 
 export const ClipScreen: React.FC<Props> = ({navigation, route}: Props) => {
-  useEffect(() => {}, []);
+  const user = useSelector((state: State) => state.user) as User;
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Clip Screen</Text>
+      <FlatList
+        data={user.clips}
+        renderItem={({item}) => (
+          <ListItem
+            imageUrl={item.urlToImage}
+            title={item.title}
+            author={item.author}
+            onPress={() => navigation.navigate("Article", {article: item})}
+          />
+        )}
+        keyExtractor={(item, index) => index.toString()}
+      />
     </SafeAreaView>
   );
 };

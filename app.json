@@ -2,11 +2,7 @@
   "expo": {
     "name": "news-app-ts",
     "slug": "news-app-ts",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -18,11 +14,12 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
+    },
+    "extra": {
+      "newsApiKey": "49a9ea5cfe5c4377b90ee6083946d195"
     }
   }
 }

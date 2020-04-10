@@ -52,7 +52,7 @@ const screenOption = ({route}): BottomTabNavigationOptions => ({
   },
 });
 
-export const AppNavigaotor = () => {
+export const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator screenOptions={screenOption}>
